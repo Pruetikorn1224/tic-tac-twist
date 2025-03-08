@@ -8,6 +8,9 @@ Tic-Tac-Toe meets the Rubik's Cube! Players can place marks on any face and rota
 
 ## 📸 Screenshots
 
+![alt text](https://github.com/Pruetikorn1224/tic-tac-twist/blob/main/Assets/Images/tic-tac-twist-home.png?raw=true)
+
+![alt text](https://github.com/Pruetikorn1224/tic-tac-twist/blob/main/Assets/Images/tic-tac-twist-gameplay.png?raw=true)
 
 ## 🕹️ How to Play
 
@@ -15,6 +18,12 @@ Tic-Tac-Toe meets the Rubik's Cube! Players can place marks on any face and rota
 2. Player can take tone to choose to place a symbol  or rotate a row of cube.
 3. The first to line up 3 own marks consecutively win the match.
 4. If the number of turn reaches limit, the match is concluded to be draw.
+
+
+
+https://github.com/user-attachments/assets/950bda7b-5c35-4674-a39e-b3fcab2bfb42
+
+
 
 ## 🛠 Features
 
