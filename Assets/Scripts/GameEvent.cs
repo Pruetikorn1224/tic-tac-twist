@@ -25,6 +25,7 @@ public class GameEvent : MonoBehaviour
     [Header("Sound Effects")]
     [SerializeField] AudioSource winSound;
     [SerializeField] AudioSource drawSound;
+    [SerializeField] AudioSource backgroundMusic;
 
     PlaceMarker placeMarkerScript;
     RotateCubes rotateCubeScript;
@@ -49,6 +50,8 @@ public class GameEvent : MonoBehaviour
         placeMarkerScript = FindObjectOfType<PlaceMarker>();
         rotateCubeScript = FindObjectOfType<RotateCubes>();
         cubeMap = FindObjectOfType<CubeMap>();
+
+        backgroundMusic.Play();
     }
 
     // Update is called once per frame
@@ -59,6 +62,18 @@ public class GameEvent : MonoBehaviour
             // Start menu scene
             case 0:
                 _rubik.transform.Rotate(0.05f, -0.02f, 0.03f, Space.World);
+
+                if ((prevGameState == 3 || prevGameState == 2) && gameState == 0)
+                {
+                    backgroundMusic.Play();
+                    RemoveXOChildren(_rubik.transform);
+
+                    playerWin = new List<int> { 0, 0 };
+
+                    currentTurn = 0;
+                }
+
+                prevGameState = gameState;
                 break;
 
             // Gameplay scene
@@ -81,6 +96,9 @@ public class GameEvent : MonoBehaviour
                     {
                         Destroy(child);
                     }
+
+                    backgroundMusic.Stop();
+
                     prevGameState = gameState;
                 }
                 else if ((prevGameState == 2 || prevGameState == 3) && gameState == 1)
@@ -148,6 +166,8 @@ public class GameEvent : MonoBehaviour
                 Debug.LogError("[GameEvent.cs] Undefined Game State!");
                 break;
         }
+
+        backgroundMusic.volume = soundVolume / 100f;
     }
 
     private int CheckWinner(List<int> board)

@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button startButton;
     [SerializeField] Button settingButton;
     [SerializeField] Button restartButton;
+    [SerializeField] Button returnButton;
     [SerializeField] Button openCubeMap;
     [SerializeField] Button closeCubeMap;
     [SerializeField] Button playerMarker;
@@ -74,6 +75,7 @@ public class UIManager : MonoBehaviour
 
         startButton.onClick.AddListener(OnGameStart);
         restartButton.onClick.AddListener(OnGameRestart);
+        returnButton.onClick.AddListener(OnReturnHome);
 
         closeCubeMap.onClick.AddListener(OnCloseCubeMap);
         openCubeMap.onClick.AddListener(OnOpenCubeMap);
@@ -197,6 +199,14 @@ public class UIManager : MonoBehaviour
         uiSound.Play();
 
         startingScene.SetActive(false);
+    }
+
+    private void OnReturnHome()
+    {
+        endingScene.SetActive(false);
+        startingScene.SetActive(true);
+
+        gameEventScript.gameState = 0;
     }
 
     private void OnOpenCubeMap()
