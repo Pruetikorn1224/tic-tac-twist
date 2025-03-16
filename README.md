@@ -4,7 +4,7 @@ Strategize your Tic-Tac-Toe plays in Rubik's cube
 
 ## 🎮 Overview
 
-Tic-Tac-Toe meets the Rubik's Cube! Players can place marks on any face and rotate the cube's rows strategically to outplay their opponent.
+Tic-Tac-Toe meets the Rubik's Cube! Players can place marks on any face and rotate the cube's rows strategically to outplay their opponent. Wanna play click [download](https://drive.google.com/drive/folders/1--mFKa5vwq3YqsU7zHe6nFbCOZUbEs4H?usp=sharing)
 
 ## 📸 Screenshots
 
