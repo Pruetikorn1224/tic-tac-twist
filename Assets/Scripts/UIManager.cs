@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [Header("UI Buttons")]
     [SerializeField] Button startButton;
     [SerializeField] Button settingButton;
+    [SerializeField] Button quitButton;
     [SerializeField] Button restartButton;
     [SerializeField] Button returnButton;
     [SerializeField] Button openCubeMap;
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button settingBackButton;
     [SerializeField] Button settingRulesButton;
     [SerializeField] Button settingContactButton;
+    [SerializeField] Button settingQuitButton;
     [SerializeField] Button rulesBackButton;
     [SerializeField] Button rulesHomeButton;
     [SerializeField] Button contactBackButton;
@@ -77,6 +79,8 @@ public class UIManager : MonoBehaviour
         restartButton.onClick.AddListener(OnGameRestart);
         returnButton.onClick.AddListener(OnReturnHome);
 
+        quitButton.onClick.AddListener(QuitGame);
+
         closeCubeMap.onClick.AddListener(OnCloseCubeMap);
         openCubeMap.onClick.AddListener(OnOpenCubeMap);
 
@@ -98,6 +102,7 @@ public class UIManager : MonoBehaviour
         contactBackButton.onClick.AddListener(delegate { SceneTransition(3, 1); });
         contactHomeButton.onClick.AddListener(delegate { SceneTransition(3, 0); });
         pauseButton.onClick.AddListener(delegate { SceneTransition(0, 1); gameEventScript.gameState = 4; });
+        settingQuitButton.onClick.AddListener(QuitGame);
 
         mouseDragButton.onClick.AddListener(delegate { RotationMode(0); });
         arrowButton.onClick.AddListener(delegate { RotationMode(1); });
@@ -374,5 +379,14 @@ public class UIManager : MonoBehaviour
         }
 
         uiSound.Play();
+    }
+
+    private void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
     }
 }
